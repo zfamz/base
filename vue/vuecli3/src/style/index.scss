@@ -1,0 +1,91 @@
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: './theme-chalk/fonts';
+
+@import './theme-chalk/index';
+@import './global.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.el-header {
+  padding: 0;
+}
+
+.clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// dialog
+.dialog-header {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #303133;
+}
+.el-dialog--center .el-dialog__body {
+  padding: 0 25px 0;
+}
+
+//button
+.el-button-group .el-button.active {
+  color: #4265ed;
+  border-color: #c6d1fa;
+  background-color: #ecf0fd;
+}
+
+// 嵌入内部表格样式
+.inner-table {
+  width: 100%;
+}
+.el-table__expanded-cell {
+  padding: 0 80px 0 278px !important;
+  td {
+    width: 16%;
+  }
+}
+
+// el-form-item 里面的datepick 100%
+.inner-width {
+  .el-date-editor.el-input {
+    width: 100%;
+  }
+  .el-select {
+    width: 100%;
+  }
+  .el-form-item__content {
+    display: flex;
+  }
+}
+
+// icon
+.svg-icon.add {
+  width: 1em;
+  height: 1em;
+  margin-top: 2px;
+}
+
+.right-error {
+  .el-form-item__error {
+    right: 1em;
+    left: unset;
+    top: calc(50% - 8px);
+  }
+}
+
+.algin-left {
+  text-align: left;
+}
+.algin-right {
+  text-align: right;
+}
+
+.x-auto {
+  overflow-x: auto;
+}

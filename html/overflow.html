@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 80px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        .demo {
+            border: 1px solid black;
+            font-size: 20px;
+        }
+
+        a {
+            position: relative;
+            display: inline-block;
+            outline: none;
+            text-decoration: none;
+            color: #000;
+            font-size: 32px;
+            padding: 5px 10px;
+        }
+
+        a:hover::before,
+        a:hover::after {
+            position: absolute;
+        }
+
+        a:hover::before {
+            content: "\5B";
+            left: -20px;
+        }
+
+        a:hover::after {
+            content: "\5D";
+            right: -20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <div class="demo">
+            <span>aaggaasdfaaasdfdsafsdfasdf</span>
+        </div>
+    </div>
+   this is no  <a href="">baidu</a>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>forms</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+  <style type="text/css">
+    .bounce-enter-active {
+      animation: bounce-in .5s;
+    }
+
+    .bounce-leave-active {
+      animation: bounce-in .5s reverse;
+    }
+
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <input v-model="message">
+    <textarea v-model="message" name="name" rows="3" cols="50"></textarea>
+    <br>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{checked}}</label>
+    <br>
+    <div>
+      <input type="checkbox" value="aa" v-model="checkNames">a
+      <input type="checkbox" value="bb" v-model="checkNames">b
+      <input type="checkbox" value="cc" v-model="checkNames">c
+      <br>
+      <span>names : {{checkNames}}</span>
+    </div>
+    <div>
+      <input type="radio" value="one" v-model="picked">one
+      <input type="radio" value="zero" v-model="picked">zero
+      <br>
+      <span>changed : {{picked}}</span>
+    </div>
+    <div>
+      <select v-model="selected">
+        <option value="a">a</option>
+        <option value="b">b</option>
+        <option value="d">c</option>
+      </select>
+      <span>selected : {{selected}}</span>
+    </div>
+    <button v-on:click="like = !like">toggle</button><br>
+    <transition name="bounce">
+      <span v-if="like">show</span>
+    </transition>
+
+  </div>
+  <hr>
+</body>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      like: true,
+      selected: [],
+      picked: '',
+      checkNames: [],
+      checked: false,
+      message: '',
+      age: 0,
+    }
+  });
+</script>
+
+</html>

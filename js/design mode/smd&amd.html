@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>smd&amd</title>
+    <script src="./smd&amd.js"></script>
+    <script>
+      window.onload = function() {
+        F.module(['lib/event', 'lib/dom'], function(events, dom) {
+          events.on('demo', 'click', function() {
+            dom.html('demo', 'module' + Date.now());
+          });
+          // console.log(arguments);
+        });
+        document.getElementById('demoAMD').addEventListener('click', function() {
+          // FF.dom('test').html('AMD Changed' + Math.random());
+
+          FF.module(['dom', document], function(dom, doc) {
+            dom('test').html('new one');
+            doc.getElementById('test').style.color = 'red';
+          });
+          FF.module('dom', 'string.trim', function(dom, trim) {
+            var html = dom('test').html();
+            console.log(html, ' : ', trim('       df   '));
+          });
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div><button id="demo">amd</button></div>
+    <div id="test">AMD DOM</div>
+    <button id="demoAMD">amd click</button>
+  </body>
+</html>

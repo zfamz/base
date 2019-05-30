@@ -1,0 +1,11 @@
+1）在系统变量里新建“JAVA_HOME”变量，变量值为：C:\Program Files\Java\jdk1.6.0_14（根据自己的安装路径填写）
+
+2）新建“classpath”变量，变量值为：.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar
+
+3）在path变量（已存在不用新建）添加变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin（注意变量值之间用“;”隔开）
+
+
+
+1，Windows--Preferences--General--Content Types--将Java Class File和Text的Default encoding 改为UTF-8---UPDATA
+2，Windows--Preferences--General--Workspace---将Text file encoding改为UTF-8
+3，右键点击项目--Preferences--Resource--将Text file encoding改为UTF-8

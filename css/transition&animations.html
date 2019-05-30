@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>transition & animations</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <style>
+      .demo-nav {
+        width: 500px;
+        margin: 0 auto;
+      }
+      .demo-nav li {
+        position: relative;
+        padding: 0 10px;
+        line-height: 40px;
+        color: #fff;
+        background: #09f;
+      }
+      .demo-nav li ul {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        height: 0;
+        overflow: hidden;
+      }
+      .demo-nav li ul li {
+        float: none;
+        /*  */
+        transition: all 0.3s;
+        background: #f90;
+        opacity: 0;
+      }
+      .demo-nav li ul li:nth-of-type(odd) {
+        transform: translate3d(100%, 0, 0);
+      }
+      .demo-nav li ul li:nth-of-type(even) {
+        transform: translate3d(-100%, 0, 0);
+      }
+      .demo-nav li:hover ul {
+        overflow: visible;
+      }
+      .demo-nav li:hover ul li {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+      .demo-slide-tab {
+        width: 500px;
+        margin: 0 auto;
+      }
+      .demo-slide-tab ul li {
+        background: #09f;
+        margin: 3px 0;
+        overflow: hidden;
+      }
+      .demo-slide-tab ul li div {
+        height: 0;
+        overflow: hidden;
+        transition: height 2s;
+      }
+      .demo-slide-tab ul li:hover h2 {
+        background: #f90;
+      }
+      .demo-slide-tab ul li:hover div {
+        height: 120px;
+        overflow: visible;
+      }
+      .demo-animation {
+        width: 250px;
+        height: 100px;
+        margin: 0 auto;
+        background: #09f;
+      }
+      .demo-animation:hover {
+        animation: 5s goW forwards;
+        /* backwards */
+      }
+      @keyframes goW {
+        10% {
+          width: 100px;
+        }
+        100% {
+          width: 500px;
+          background: pink;
+        }
+      }
+      .demo-animation1 {
+        width: 250px;
+        height: 100px;
+        margin: 10px auto;
+        background: #000;
+        animation: 5s goW infinite;
+      }
+      .demo-animation1:hover{
+        animation-play-state: paused;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-nav">
+      <ul class="menu fllil">
+        <li>
+          html
+          <ul class="sub-menu">
+            <li>article</li>
+            <li>section</li>
+            <li>menu</li>
+            <li>nava</li>
+          </ul>
+        </li>
+        <li>
+          CSS3
+          <ul class="sub-menu">
+            <li>aniamtions</li>
+            <li>transition</li>
+            <li>circle</li>
+            <li>radius</li>
+          </ul>
+        </li>
+        <li>javascript</li>
+        <li>Jquery</li>
+        <li>vue</li>
+      </ul>
+      <div class="clear"></div>
+      git it
+    </div>
+    <div class="demo-slide-tab">
+      <ul>
+        <li>
+          <h2>title 1</h2>
+          <div>content</div>
+        </li>
+        <li>
+          <h2>title 2</h2>
+          <div>content</div>
+        </li>
+        <li>
+          <h2>title 3</h2>
+          <div>content</div>
+        </li>
+        <li>
+          <h2>title 4</h2>
+          <div>content</div>
+        </li>
+      </ul>
+    </div>
+    <div class="demo-animation"></div>
+    <div class="demo-animation1"></div>
+  </body>
+</html>

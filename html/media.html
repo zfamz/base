@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>media</title>
+    <link rel="stylesheet" media="screen and (max-device-width:480px)"  href="style.css">
+    <!-- max-device-width可视的最大宽度，当满足时，使用引用的css -->
+    <style type="text/css">
+        body{
+            background-color: aqua;
+        }
+        @media screen and (max-width:800px) and (min-width:500px){
+            body{
+            background-color: bisque;
+            }
+        }
+        @media not print and (max-width:1200px){
+            /*不是打印设备，宽度不大于1200适用*/
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>刮彩票</title>
+    <style>
+      #box {
+        border: 1px solid black;
+        position: absolute;
+      }
+      .bg {
+        text-align: center;
+        font-size: 20px;
+        width: 300px;
+        height: 150px;
+        border: 1px solid palegreen;
+        line-height: 150px;
+        letter-spacing: 5px;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="box" height="150" width="300"></canvas>
+    <div class="bg">一等奖</div>
+  </body>
+  <script>
+    var func = function(event) {
+      ctx.clearRect(event.clientX - 15, event.clientY - 15, 20, 20);
+    };
+    window.onload = function() {
+      var canvas = document.getElementById('box');
+      ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.rect(0, 0, 300, 150);
+      ctx.fillStyle = 'gray';
+      ctx.fill();
+      ctx.closePath();
+      canvas.addEventListener('mousedown', function() {
+        canvas.addEventListener('mousemove', func);
+      });
+      canvas.addEventListener('mouseup', function() {
+        canvas.removeEventListener('mousemove', func);
+      });
+    };
+  </script>
+</html>

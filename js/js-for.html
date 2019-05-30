@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var a = ['A','B','C'];
+    a.name =  "cz";
+    for(var i in a){
+        console.log(i);
+    }
+    console.log("end+++++++++++++++++++++++++++++++++");
+    
+    for(var i of a){
+        console.log(i);
+    }
+    console.log("end+++++++++++++++++++++++++++++++++");
+    a.forEach((el,index,arr)=>{
+        console.log(el+':'+index+':'+arr.length);
+    });
+    function temp(...test){
+        console.log(arguments);
+        console.log(test);
+    }
+    temp(1,2,3,4,5,6,'asd');
+</script>
+</html>

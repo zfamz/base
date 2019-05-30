@@ -1,0 +1,58 @@
+编码：
+show variables like '%char%';
+/etc/my.cnf [mysqld] character-set-server=utf8  [client] default-character-set=utf8  [mysql] default-character-set=utf8
+或者在
+[mysqld] 
+character_set_server=utf8 
+init_connect='SET NAMES utf8'
+
+用户：
+CREATE USER username IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'password'
+EVOKE ALL PRIVILEGES ON *.* FROM 'username'@'localhost';
+GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'localhost' IDENTIFIED BY 'password
+GRANT SELECT, UPDATE ON wordpress.* TO 'username'@'localhost' IDENTIFIED BY 'password'
+FLUSH PRIVILEGES;(刷新权限)
+DROP USER username@localhost;
+SELECT User, Host FROM user;
+
+修改密码：
+mysqladmin-uroot -pold password new
+mysql> update user setpassword=password(”xueok654123″) where user=’root’;
+
+数据备份和导出
+shell>mysqldump -h host -u root -p dbname > dbname_backup.sql
+shell>mysqladmin -h myhost -u root -p create dbname
+shell>mysql -h host -u root -p dbname < dbname_backup.sql
+mysql>source /home/mysql.sql;
+
+selectversion(),current_date;
+查询时间：select now();
+查询当前用户：select user();
+查询数据库版本：select version();
+查询当前使用的数据库：select database();
+
+
+启动：net start mySql;
+进入：mysql -u root -p/mysql -hlocalhost -u root -p databaseName;
+列出数据库：show databases;
+选择数据库：use databaseName;
+列出表格：show tables；
+显示表格列的属性：show columns fromtableName；
+建立数据库：source fileName.txt;
+desc 表名称;
+
+
+create table  tbname(
+id int not null auto_increment [primary key],
+name varchar(20) not null default '经理', #设定默认值
+description varchar(100),
+primary key(id)
+);
+
+insert into tbname(attr1,attr2) values('v1','v2'),('v1','v2');
+select * , attr1 from tbname where attr=" condition"  order by attr desc  limit(offset, length)
+delete from tbname where attr="";
+update tbname set attr="" where attr="";
+
+

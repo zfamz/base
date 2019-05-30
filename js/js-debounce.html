@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.bootcss.com/underscore.js/1.8.3/underscore-min.js"></script>
+    <title>debounce</title>
+    <style type="text/css">
+      #throttle {
+        border: 1px solid red;
+        width: 500px;
+        height: 345px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #throttle span {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" oninput="change()" />
+    <div id="throttle"><span>0</span></div>
+  </body>
+  <script>
+    var s = document.getElementById('throttle');
+    var index = 1;
+    window.onload = function() {
+      s.addEventListener('mousemove', throttle(apple));
+    };
+    function apple() {
+      console.log('throttle:', index);
+      s.getElementsByTagName('span')[0].innerHTML = index++;
+    }
+    function throttle(func, wait = 1000) {
+      var lastruntime, timeout, flag;
+      lastruntime = 0;
+      // 标示是否进过定时器
+      flag = false;
+      return function() {
+        // 离上次运行时间
+        let timestamp = Date.now() - lastruntime;
+        if (timestamp > wait) {
+          clearTimeout(timeout);
+          timeout = null;
+          lastruntime = Date.now();
+          flag = false;
+          func();
+        } else {
+          if (!flag) {
+            flag = true;
+            timeout = setTimeout(func, wait - timestamp);
+          }
+        }
+      };
+    }
+    // mode 0 前后都执行， 1 进入不执行，2离开不执行
+    function throttle1(func, wait = 1000, mode = 0) {
+      var lasttime, lastruntime, ramintime, timeout;
+      lasttime = mode === 1 ? Date.now() : 0;
+      function later() {
+        lasttime = Date.now();
+        if (timeout) {
+          clearTimeout(timeout);
+          timeout = null;
+        }
+        func();
+      }
+      return function() {
+        var now = Date.now();
+        if (now - lasttime > wait) {
+          later();
+        } else {
+          if (mode !== 2 && !timeout) {
+            ramintime = wait - now + lasttime;
+            timeout = setTimeout(later, ramintime);
+          }
+        }
+      };
+    }
+  </script>
+  <script>
+    // debounce
+    function debounce(func, context) {
+      clearTimeout(func.id);
+      func.id = setTimeout(function() {
+        func.call(context);
+      }, 1000);
+    }
+    function debounce1(func, wait = 1000) {
+      let timeout, timestamp, context, args;
+      function later() {
+        let late = Date.now() - timestamp;
+        if (late > wait) {
+          func.apply(context, args);
+          timeout = null;
+        } else {
+          setTimeout(later, wait - late);
+        }
+      }
+      return function() {
+        args = Array.prototype.slice.call(arguments);
+        if (args.length > 0) {
+          // 把this传进来， underscore里面直接是context
+          context = args.shift();
+        }
+        // args = arguments;
+        timestamp = Date.now();
+        if (!timeout) {
+          timeout = setTimeout(later, wait);
+        }
+      };
+    }
+    var name = 'cz';
+    var obj = {
+      name: 'inner',
+      say: function(a) {
+        console.log('hello debounce', this.name, a);
+      }
+    };
+    function say(a) {
+      console.log('there is window', this.name, a);
+    }
+    var dbc = debounce1(show, 300);
+    var dbc1 = debounce1(obj.say, 300);
+    var dbc2 = _.debounce(obj.say, 300);
+    function change() {
+      // console.log(event);
+      // debounce(show);
+      dbc1(this, event.target.value);
+      // dbc2(event.target.value);
+      // obj.say();
+    }
+    function show() {
+      console.log('input change');
+    }
+  </script>
+</html>

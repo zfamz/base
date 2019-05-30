@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HolyGrailLayout</title>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        .HolyGrail {
+            width:90%;
+            margin: 10px auto;
+            display: flex;
+            min-height: 100vh;
+            /* flex-wrap: wrap; */
+            flex-direction: column;
+        }
+
+        /* .HolyGrail * {
+            border: 1px solid red;
+        } */
+
+        header,
+        footer {
+            flex: 1;
+            height: 50px;
+            background-color: #eee;
+            max-height: 5vh;
+            /* width:100%; */
+        }
+
+        .content {
+            display: flex;
+            min-height: 80vh;
+        }
+
+        .left {
+            flex: 0 0 20%;
+            order: -1;
+        }
+
+        .center {
+            flex: 0 0 60%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .right {
+            flex: 0 0 20%;
+            order: 1;
+        }
+
+        @media (max-width: 768px){
+            .content{
+                flex-direction: column;
+                flex-wrap: wrap;
+                flex:1;
+            }
+            .left,.right,.center{
+                flex: auto;
+            }
+        }
+        .input-group{
+            height: 23px;
+            width:50%;
+            display: flex;
+            margin-top:5px;
+        }
+        .input-group input{
+            flex:1;
+        }
+        .add-item{
+            border: 1px solid #eeeeee;
+            background-color: #eee;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="HolyGrail">
+    <header>
+        header
+    </header>
+    <div class="content">
+        <div class="left">
+            <input type="text">
+            left
+        </div>
+        <div class="center">
+            <div class="input-group">
+                <span class="add-item">message</span>
+                <input type="text">
+                <button class="add-item">go</button>
+            </div>
+        </div>
+        <div class="right">
+            right
+        </div>
+    </div>
+    <footer>
+        footer
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+9MRN3-CW7DY-MT4B7-VJCB9-9HJWR
+
+slmgr.vbs -dlv -dli 
+slmgr.vbs -xpr

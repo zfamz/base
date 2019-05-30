@@ -1,0 +1,170 @@
+加入sudoers
+sudo usermod -a -G admin username(-a 其他用户组要加)   or
+chmod u+w /etc/sudoers
+yourUserName   ALL=(ALL:ALL) ALL
+chmod u-w /etc/sudoers
+
+配置
+winscp root:
+	vi /etc/ssh/sshd_config
+	找到 PermitRootLogin no 改成yes
+	重启sshd服务  #service sshd restart
+
+sudo passwd
+ 
+用户相关：
+sudo adduser xxx 这样的命令会在home目录下添加一个帐号
+sudo useradd xxx 仅仅是添加用户， 不会在home目录添加帐号
+sudo userdel -r newuser
+passwd qpmz1397
+
+ssh
+	ps -e|grep ssh
+	apt-get install openssh-client
+	apt-get install openssh-server
+************************************************************************
+date 显示日期的指令
+
+cal 显示日历的指令
+
+bc 计算器
+
+[Ctrl]-d按键---通常代表着：『键盘输入结束(End Of File, EOF 戒 End OfInput)』 =exit
+
+man manaul手册  1、Standard commands （标准命令）
+		2、System calls （系统调用）
+		3、Library functions （库函数）
+		4、Special devices （设备说明）
+		5、File formats （文件格式）
+		6、Games and toys （游戏和娱乐）
+		7、Miscellaneous （杂项）
+		8、Administrative Commands （管理员命令）
+		9 其他（Linux特定的）， 用来存放内核例行程序的文档。
+
+sync 数据同步写入磁盘
+
+shutdown -t 关机指令 shutdown -r now
+
+reboot, halt,poweroff  重启，关机
+
+
+init 	--run level 0 :关机 [init 0]
+	--run level 3 :纯文本模式
+	--run level 5 :含有图形接口模式
+	--run level 6 :重新启动
+
+chgrp 改变文件的所属群组
+
+chown 改变文件拥有者
+
+chmod 改变文件的权限(777 完全)
+
+uname -r 
+lsb_release -a  查看一些Linux信息
+
+cat 由第一行开始显示档案内容 -n 行号
+
+tac 从最后一行开始显示
+
+nl 显示的时候，顺道输出行号
+
+more 一页一页的显示档案内容
+
+less =more +可以向前翻页
+
+head 只看头几行
+
+tail 只看尾几行
+
+od 以二进制的放置读取档案内容
+
+umask 档案预设权限
+
+chattr 配置文件档案隐藏属性
+
+lsattr 显示档案隐藏属性
+
+file 观察文件类型
+
+which 寻找【执行挡】
+
+whereis 寻找特定档案
+
+locate 寻找特定档案
+
+find 寻找特定档案
+
+gzip，zcat 压缩文件和读取压缩文件
+
+bzip2，bzcat 压缩文件和读取压缩文件
+
+tar 压缩文件和读取压缩文件
+	 tar -cvf /tmp/etc.tar /etc　　　　<==仅打包，不压缩！
+	 tar -zcvf /tmp/etc.tar.gz /etc　　<==打包后，以 gzip 压缩
+	 tar -jcvf /tmp/etc.tar.bz2 /etc　　<==打包后，以 bzip2 压缩
+
+
+pwd 显示当前所在目录
+
+cp 复制
+
+mv 移动文件/文件夹
+
+touch 新建文件
+
+mkdir  创建文件夹
+
+rmdir 删除空目录
+
+rm -irf 删除文件夹/文件
+
+cd 打开文件夹 cd .. 回到上级目录
+
+ls 显示当前目录内容
+
+修改权限命令
+
+chmod 777 文件名
+
+1.chmod 577 /home/stuser -R
+2.umask -p 0200
+3.chown XXXX YYYY (XXXX 为用户名 YYYY为文件名）
+ 
+权限列表
+
+-rw-------   (600) 只有所有者才有读和写的权限
+-rw-r--r--   (644) 只有所有者才有读和写的权限，组群和其他人只有读的权限
+-rwx------   (700) 只有所有者才有读，写，执行的权限
+-rwxr-xr-x   (755) 只有所有者才有读，写，执行的权限，组群和其他人只有读和执行的权限
+-rwx--x--x   (711) 只有所有者才有读，写，执行的权限，组群和其他人只有执行的权限
+-rw-rw-rw-   (666) 每个人都有读写的权限
+-rwxrwxrwx   (777) 每个人都有读写和执行的权限
+
+
+Centos php
+
+yum install httpd httpd-devel 
+yum install mysql mysql-server
+yum install php php-devel
+yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc
+/etc/init.d/httpd start(stop restart)
+service mysqld start
+
+
+Ubuntu Lamp（16版本后为php7.0, 之前为php5）
+（LNMP）sudo apt-get install nginx php7.0-cli php7.0-cgi php7.0-fpm php7.0-mcrypt php7.0-mysql mysql-client-core-5.5 mysql-server-core-5.5
+apt-get install mysql-server
+apt-get install apache2（config：/etc/apache2	Document:/var/www）
+apt-get install php7.0 libapache2-mod-php7.0
+apt-get install php7.0-mysql php7.0-curl php7.0-gd php7.0-intl php-pear php7.0-ps php7.0-pspell php7.0-recode php7.0-snmp php7.0-sqlite php7.0-tidy php7.0-xmlrpc php7.0-xsl
+apt-get install redis-server
+(redis扩展)wget https://github.com/nicolasff/phpredis/zipball/master -O php-redis.zip
+
+
+
+
+
+
+
+
+

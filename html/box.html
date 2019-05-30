@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>box</title>
+    <style>
+      .div1 {
+        /* display: inline-block; */
+        margin-top: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        border: 10px solid saddlebrown;
+        background: #ee4433;
+        width: 100px;
+        height: 100px;
+      }
+      .div2 {
+        /* display: inline-block; */
+        margin: 10px 10px;
+        padding: 10px 10px;
+        border: 10px solid aqua;
+        background: brown;
+        width: 100px;
+        height: 100px;
+      }
+      .div3 {
+        display: inline-block;
+        margin: 10px 10px;
+        padding: 10px 10px;
+        border: 10px solid cadetblue;
+        background: darkgreen;
+        width: 100px;
+        height: 100px;
+      }
+      .div4 {
+        display: inline-block;
+        box-sizing: border-box;
+        margin: 10px 10px;
+        padding: 10px 10px;
+        border: 10px solid cadetblue;
+        background: darkgreen;
+        width: 100px;
+        height: 100px;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">display block 之间margin会重叠，但inline-block不会</div>
+    <div class="div2">div2</div>
+    <hr />
+    <div class="div3"><span>div3</span></div>
+    <div class="div4"><span>box-sizing: border-box; (100,100)</span></div>
+  </body>
+</html>

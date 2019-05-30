@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>emmet 语法查询</title>
+  </head>
+  <script type="text/javascript">
+    const content = {
+      '{}': '文本内容 {text value}',
+      '()': '分组',
+      '[]': `标签属性 [ attr='attr']`,
+      '+': '同级元素',
+      '>': '子元素',
+      '^': '等级提升',
+      '*': '循环次数',
+      '$': '变量 配合*使用 默认1',
+      '@': '排序',
+      '@-': '排序,降序 li$@-*3 li3 li2 li1',
+      '@-12': '降序 li$@-12*3 li12 li11 li 10'
+    };
+    for (let key in content) {
+      console.log('key: ', key);
+      console.log('value: ', content[key]);
+    }
+  </script>
+  <body>
+    div.className#idName[name=$ attr='attr$$$@-']{text value}*2 注意：没有'*'号$不会转义 '@'代表排序 '@-'代表倒叙
+    <div class="className" id="idName" name="1" attr="attr002">text value</div>
+    <div class="className" id="idName" name="2" attr="attr001">text value</div>
+    div+(ul>li*3)+span>em+span^^table>tr*2>td*2 '+'同级元素 '^'元素等级提升
+    <div></div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <span><em></em><span></span></span>
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    ul>li{num: $$$@-12}*5 @-12 从12开始倒序
+    <ul>
+      <li>num: 016</li>
+      <li>num: 015</li>
+      <li>num: 014</li>
+      <li>num: 013</li>
+      <li>num: 012</li>
+    </ul>
+  </body>
+</html>
