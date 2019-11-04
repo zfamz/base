@@ -53,6 +53,22 @@ export default {
 
 ```js
 // vue.config.js 配置 （注意，里面配置的顺序好像有要求，不然会报错。配置后要重启）
+config.module
+.rule('svg')
+.exclude.add(resolve('src/icons'))
+.end();
+
+config.module
+.rule('icons')
+.test(/\.svg$/)
+.include.add(resolve('src/icons'))
+.end()
+.use('svg-sprite-loader')
+.loader('svg-sprite-loader')
+.options({
+  symbolId: 'icon-[name]'
+});
+//-------------
 const svgRule = config.module.rule('svg');
     svgRule.uses.clear();
     svgRule
