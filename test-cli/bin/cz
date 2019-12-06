@@ -1,0 +1,14 @@
+#! /usr/bin/env node
+const program = require('commander');
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+
+program
+  .version(require('../package').version)
+  .usage('<commander> [option]')
+  .command('init', 'genetate a new project form  a template')
+  .command('add', 'add a new template')
+  .command('del', 'delete a template')
+  .command('list', 'list all the template');
+
+program.parse(process.argv);

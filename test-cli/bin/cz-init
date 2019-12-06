@@ -1,0 +1,40 @@
+#! /usr/bin/env node
+const program = require('commander');
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+const ora = require('ora');
+const download = require('download-git-repo');
+const fs = require('fs');
+let tplPath = `${__dirname}\\..\\template.json`;
+const tplObj = require(tplPath);
+
+program.usage('<template-name> [project-name]');
+program.parse(process.argv);
+// if (program.args.length < 1) {
+//   return program.help();
+// }
+
+let templateName = program.args[0] || 'simple';
+let projectName = program.args[1] || 'project';
+console.log('projectName: ', projectName);
+if (!tplObj[templateName]) {
+  console.log(chalk.red('\n Template does not exit! \n'));
+  return;
+}
+
+let url = tplObj[templateName];
+console.log(chalk.white('\n Start genetating'));
+
+const spinner = ora('Downloading...');
+spinner.start();
+
+download('github:' + url, projectName, err => {
+  if (err) {
+    spinner.fail();
+    console.log(chalk.red('Geration failed. ', err));
+  } else {
+    spinner.succeed();
+    console.log('\n To get Start');
+    console.log('\n        cd template');
+  }
+});
