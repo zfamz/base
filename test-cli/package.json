@@ -1,0 +1,26 @@
+{
+  "name": "test-cli",
+  "version": "1.0.0",
+  "description": "try to get a cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node bin/cz"
+  },
+  "bin": {
+    "cz": "bin/cz",
+    "cz-add": "bin/cz-add",
+    "cz-del": "bin/cz-del",
+    "cz-init": "bin/cz-init",
+    "cz-list": "bin/cz-list"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^7.0.0",
+    "ora": "^4.0.3"
+  }
+}

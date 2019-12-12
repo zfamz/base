@@ -20,7 +20,7 @@ const _axios = axios.create(config);
 _axios.interceptors.request.use(
   function(config) {
     // 取消所有请求
-    return null;
+    // return null;
     // Do something before request is sent
     // store.user.token
     if (store.state.user.token) {
