@@ -2,8 +2,8 @@
 function sayHello(person: Array<string | boolean | number>) {
   return 'hello,' + person;
 }
-let user = [0, 1, 2];
-console.log(sayHello(user));
+let user1: number[] = [0, 1, 2];
+console.log(sayHello(user1));
 
 // base type
 let creatBoolean: Boolean = new Boolean(1); // there is Object Boolean
@@ -81,7 +81,7 @@ function sum() {
 
 // this is already in system
 interface IArguments {
-  [index: number]: any;
+  // [index: number]: any;   // err : Duplicate number index signature.
   length: number;
   callee: Function;
 }
@@ -110,7 +110,7 @@ function myPush(array: any[], ...items: any[]) {
 
 function rever(x: number): number;
 function rever(x: string): string;
-function rever(x: number | string): string | number {
+function rever(x: number | string): undefined | string | number {
   if (typeof x === 'number') {
     return Number(
       x
@@ -148,8 +148,15 @@ declare function jQuery(domReadyCallback: () => any): any;
 declare class Animal {
   name: string;
   constructor(name: string);
-  sayHi(): string;
+  sayHi: Function;
 }
+
+let a1: Animal = {
+  name: 'cz',
+  sayHi: function() {
+    console.log('hi');
+  }
+};
 
 declare enum Directions {
   Up,
