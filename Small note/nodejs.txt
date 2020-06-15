@@ -12,3 +12,10 @@ npm config set registry https://registry.npm.taobao.org
 5.测试
 npm install express -g
 npm install npm@latest -g //更新npm到最新版本
+
+// 删除文件
+rd /s /q file_dir
+npm cache clean --force
+// npm install python 问题
+npm install -g node-gyp
+npm install --global --production windows-build-tools

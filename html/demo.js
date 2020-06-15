@@ -1,8 +1,8 @@
 function Foo() {
-    this.value = 42;
+  this.value = 42;
 }
 Foo.prototype = {
-    method: function() {}
+  method: function () {},
 };
 
 function Bar() {}
@@ -14,6 +14,6 @@ Bar.prototype.foo = 'Hello World';
 // 修正Bar.prototype.constructor为Bar本身
 Bar.prototype.constructor = Bar;
 
-var test = new Bar() // 创建Bar的一个新实例
+var test = new Bar(); // 创建Bar的一个新实例
 
-console.log("123");
+console.log('123');
