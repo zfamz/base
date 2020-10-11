@@ -17,7 +17,7 @@ DROP USER username@localhost;
 SELECT User, Host FROM user;
 
 修改密码：
-mysqladmin-uroot -pold password new
+mysqladmin-u root -p old password new
 mysql> update user setpassword=password(”xueok654123″) where user=’root’;
 
 数据备份和导出
