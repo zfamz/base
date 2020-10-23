@@ -86,24 +86,24 @@ interface IArguments {
   callee: Function;
 }
 
-let mySum = function(x: number, y: number): number {
+let mySum = function (x: number, y: number): number {
   return x + y;
 };
-let mySum_b: (x: number, y: number) => number = function(x: number, y: number): number {
+let mySum_b: (x: number, y: number) => number = function (x: number, y: number): number {
   return x + y;
 };
 
 interface SumFunc {
   (source: string, subString: string): boolean;
 }
-let mySumFunc: SumFunc = function(x: string, y: string) {
+let mySumFunc: SumFunc = function (x: string, y: string) {
   return x.search(y) !== -1;
 };
 
 function Func(x: number = 2, y?: string): void {} // cant be   y?:string = 'str'
 
 function myPush(array: any[], ...items: any[]) {
-  items.forEach(function(item) {
+  items.forEach(function (item) {
     array.push(item);
   });
 }
@@ -112,18 +112,9 @@ function rever(x: number): number;
 function rever(x: string): string;
 function rever(x: number | string): undefined | string | number {
   if (typeof x === 'number') {
-    return Number(
-      x
-        .toString()
-        .split('')
-        .reverse()
-        .join('')
-    );
+    return Number(x.toString().split('').reverse().join(''));
   } else if (typeof x === 'string') {
-    return x
-      .split('')
-      .reverse()
-      .join('');
+    return x.split('').reverse().join('');
   }
 }
 
@@ -153,7 +144,7 @@ declare class Animal {
 
 let a1: Animal = {
   name: 'cz',
-  sayHi: function() {
+  sayHi: function () {
     console.log('hi');
   }
 };

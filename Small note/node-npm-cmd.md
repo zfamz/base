@@ -1,3 +1,27 @@
+#### nvm - 管理 node 版本
+
+- [nvm windows](https://github.com/coreybutler/nvm-windows/releases)
+- liunx 直接 npm 安装
+
+```cmd
+nvm list available
+nvm install
+nvm use version
+```
+
+setting.txt 配置文件
+
+```config
+root: D:\system\nvm
+path: D:\Program Files\nodejs
+arch: 64
+proxy: none
+node_mirror: http://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+```
+
+---
+
 #### nvs - 管理 node 版本
 
 - [nvs](https://zhuanlan.zhihu.com/p/63403762)
