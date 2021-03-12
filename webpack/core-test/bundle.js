@@ -1,3 +1,6 @@
+/**
+ * https://github.com/Sunny-lucking/howToBuildMyWebpack
+ */
 const fs = require('fs');
 const path = require('path');
 const parser = require('@babel/parser');
@@ -64,4 +67,5 @@ const bundle = (file) => {
 };
 
 let output = bundle('./src/index.js');
-fs.writeFileSync('./output.js', output);
+console.log('output: ', output);
+// fs.writeFileSync('./output.js', output);

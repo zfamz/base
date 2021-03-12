@@ -2,15 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const Config = require('webpack-chain');
 const config = new Config();
-const resolve = (src) => {
-  return path.join(process.cwd(), src);
+let basePath = 'core-test/config'; 
+const resolve = (...src) => {
+  return path.join(process.cwd(), ...src);
 };
-const files = fs.readdirSync(resolve('config'));
+const files = fs.readdirSync(resolve(basePath));
 
 module.exports = () => {
-  let loaders = [];
   files.map((file) => {
-    path.basename(file, '.js');
+    require(resolve(basePath, file))(config, resolve)();
   });
   return config;
 };

@@ -1,2 +1,1 @@
-const css = require('./src/index.css');
-console.log(css);
+const css = import('./src/index.css');

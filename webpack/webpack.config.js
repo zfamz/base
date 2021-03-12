@@ -13,7 +13,7 @@ rimraf.sync('./core-test/dist');
 // module.exports = {
 //   entry: './core-test/loader.js',
 //   mode: process.env.NODE_ENV,
-//   output: {5
+//   output: {
 //     filename: 'bundle.js',
 //     path: path.resolve(__dirname, 'core-test/dist')
 //   },
@@ -33,6 +33,7 @@ config
   .end()
   .set('mode', process.env.NODE_ENV)
   .output.path(resolve('core-test/dist'))
+  .publicPath('./dist/')
   .filename('[name].bundle.js');
 
 config.module
@@ -41,7 +42,7 @@ config.module
   .use('css')
   .loader('css-loader');
 let temp = config.toConfig();
-console.log('temp: ', temp);
+console.log('temp: ', JSON.stringify(temp, null, 2));
 
 // fs.writeFileSync('./core-test/config.json', JSON.stringify(temp, null, 2));
 

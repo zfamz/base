@@ -4,9 +4,10 @@
   "description": "try to write the webpack config",
   "main": "./core-test/loader.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env NODE_ENV=development webpack",
-    "build": "cross-env NODE_ENV=production webpack"
+    "echo": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE_ENV=development node core-test/build/dev.js",
+    "build": "cross-env NODE_ENV=development node core-test/build/build.js",
+    "test": "cross-env NODE_ENV=development webpack"
   },
   "author": "cz",
   "license": "ISC",
