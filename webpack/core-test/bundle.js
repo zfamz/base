@@ -67,5 +67,5 @@ const bundle = (file) => {
 };
 
 let output = bundle('./src/index.js');
-console.log('output: ', output);
-// fs.writeFileSync('./output.js', output);
+// console.log('output: ', output);
+fs.writeFileSync('./output-tempdata.js', output);

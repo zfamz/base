@@ -11,7 +11,7 @@ selenium-debug.log
 /source/read
 # Editor directories and files
 .idea
-.vscode
+# .vscode
 *-lock.json
 *.suo
 *.ntvs*
